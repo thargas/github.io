@@ -1,0 +1,9 @@
+{
+    "short_name": "MyClock",
+    "name": "myclock",
+    "start_url": "/?source=pwa",
+    "background_color": "#000000",
+    "display": "standalone",
+    "scope": "/",
+    "Description": "a simple clock"
+}
