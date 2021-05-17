@@ -1,0 +1,146 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/myclock
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=B612+Mono:wght@700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style>
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* BEGIN */
+
+.clearfix { overflow: auto; }
+.clearfix::after { content: ""; clear: both; }
+
+body {
+  background-color: #000000;
+}
+#name {
+  float: left;
+  valign: center;
+  color: #aaaaaa;
+}
+#settings {
+  color: #aaaaaa;
+  float: right;
+  valign: center;
+}
+#clock {
+  z-index: 1;
+  position: fixed;
+  opacity: 80%;
+  top: 25px;
+  right: 0;
+  width: 100%;
+  font-family: 'Roboto Mono', sans-serif;
+  background-color: transparent;
+  color: #669999;
+  font-size: 150px;
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+#bg {
+  z-index: 0;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border: thing solid;
+  border-color: #ffffff;
+}
+</style
+<script>
+function showTime() {
+    let time = new Date();
+    let hour = time.getHours();
+    let min = time.getMinutes();
+    let sec = time.getSeconds();
+  
+    hour = hour < 10 ? "0" + hour : hour;
+    min = min < 10 ? "0" + min : min;
+    sec = sec < 10 ? "0" + sec : sec;
+  
+    let currentTime = hour + ":" + min;// + ":" + sec + am_pm;
+  
+    document.getElementById("clock")
+            .innerHTML = currentTime;
+}
+function showDayDisc() {
+  var bg = document.getElementById("bg");
+  var clk = document.getElementById("clock");
+  //alert("h="+clk.clientHeight+" w="+clk.clientWidth);
+  bg.width = clk.clientWidth;
+  bg.height = clk.clientHeight;
+
+  ct = bg.getContext("2d");
+  ct.moveTo(bg.width/2, 0);
+  ct.lineTo(0, bg.height);
+  ct.stroke();
+}
+
+showTime();
+setInterval(showTime, 1000);
+showDayDisc();
+</script>
+  </head>
+  <body>
+
+    <div id="top" class="clearfix">
+      <span id="name">MyClock</span>
+      <span id="settings" class="material-icons">settings</span>
+    </div>
+    <div id="main" class="clearfix">
+      <div id="clock">00:00</div>
+    </div>
+    <canvas id="bg"></canvas>
+  </body>
