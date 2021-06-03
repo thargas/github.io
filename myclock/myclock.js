@@ -25,7 +25,3 @@ function showDayDisc() {
   ct.lineTo(0, bg.height);
   ct.stroke();
 }
-
-showTime();
-setInterval(showTime, 1000);
-showDayDisc();
