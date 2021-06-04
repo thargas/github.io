@@ -8,6 +8,7 @@ function showTime() {
     min = min < 10 ? "0" + min : min;
     sec = sec < 10 ? "0" + sec : sec;
     let currentTime = hour + ":" + min;// + ":" + sec + am_pm;
+
     document.getElementById("clock")
             .innerHTML = currentTime;
 }
@@ -23,4 +24,11 @@ function showDayDisc() {
   ct.moveTo(bg.width/2, 0);
   ct.lineTo(0, bg.height);
   ct.stroke();
+}
+
+function setFontSize() {
+    pagesized = this.innerWidth / 30; // Proportionate font size to page
+    pagesized = Math.max(pagesized, 14); // Set size to be no less than 14 px
+    pagesized = Math.min(pagesized, 30); // & No greater than 30 px
+    this.style.fontSize = pagesized; // Set body default font size
 }
