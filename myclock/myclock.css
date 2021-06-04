@@ -9,11 +9,13 @@ body {
   float: left;
   valign: center;
   color: #aaaaaa;
+  left: 5px;
 }
 #settings {
   color: #aaaaaa;
   float: right;
   valign: center;
+  right: 5px;
 }
 #clock {
   z-index: 1;
